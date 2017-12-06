@@ -8,7 +8,10 @@ export default class Editor extends React.Component {
 
   render() {
     return (
-      <textarea onChange={this.handleChange} value={this.props.markdown} />
+      <div>
+        <p>Write/Paste your super exciting Markdown below</p>
+        <textarea onChange={this.handleChange} value={this.props.markdown} />
+      </div>
     );
   }
 }
