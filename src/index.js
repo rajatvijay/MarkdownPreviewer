@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
 import Editor from "./Editor";
-import Previewer from "./Previewer";
+// import Previewer from "./Previewer";
+import marked from "marked";
 
 const styles = {
   fontFamily: "sans-serif",
@@ -20,7 +21,7 @@ class App extends React.Component {
   };
 
   renderMarkdown = markdown => {
-    return markdown;
+    return marked(markdown);
   };
 
   render() {
@@ -31,7 +32,7 @@ class App extends React.Component {
           onEditorContentChanged={this.handleContentChange}
           markdown={this.state.markdown}
         />
-        <Previewer renderedMarkdown={renderedMarkdown} />
+        <div dangerouslySetInnerHTML={{ __html: renderedMarkdown }} />
       </div>
     );
   }
